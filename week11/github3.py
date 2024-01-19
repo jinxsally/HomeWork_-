@@ -3,7 +3,7 @@
 import requests
 from github import Github
 
-token = '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'
+token = 'XXX'
 
 g = Github(token)
 
