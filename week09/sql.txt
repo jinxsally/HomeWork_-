@@ -1,0 +1,43 @@
+3.
+create table user(
+id int primary key,
+name varchar(10),
+sex char,
+age int(3),
+phone char(11)
+);
+
+insert into user(id,name,sex,age,phone) values (1,'小李','女',20,'12345678900');
+insert into user(id,name,sex,age,phone) values (2,'张三','男',45,'12345678901');
+insert into user(id,name,sex,age,phone) values (3,'李四','男',35,'12345678902');
+insert into user(id,name,sex,age,phone) values (4,'王五','男',32,'12345678903');
+insert into user(id,name,sex,age,phone) values (5,'赵六','男',28,'12345678904');
+insert into user(id,name,sex,age,phone) values (6,'小何','女',34,'12345678905');
+
+4.select*from user where age>=20 and age <=30;
+
+5.delete from user where name like '张%' and id >=0;
+
+6.select avg(age) from user;
+
+7.select*from user where (age <=30 AND age >=20) and (name like '%张%') order by age DESC;
+
+8.
+create table team(
+id int not null,
+teamName varchar(10),
+unique(id)
+);
+
+create table score(
+id int primary key,
+teamid int,
+foreign key(teamid) references team(id),
+userid int,
+foreign key (userid) references user(id)
+score int
+);
+
+9.select t.id,s.teamid,s.userid,u.id from team t join score s join user u on (teamName='ECNU' ) and (age <=20)
+
+10.select  sum(s.score) from team t join score s on teamName='ECNU'
